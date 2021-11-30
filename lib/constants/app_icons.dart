@@ -8,4 +8,5 @@ class AppIcons {
   static const IconData deposit = Icons.money;
   static const IconData withdraw = Icons.person;
   static const IconData open_account = Icons.comment_outlined;
+  static const IconData circle = Icons.circle;
 }
