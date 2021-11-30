@@ -22,7 +22,6 @@ class _HomePageState extends State<HomePage> {
 
     return Consumer<HomeViewModel>(
         builder: (BuildContext ctx, HomeViewModel homeNavViewModel, Widget _) {
-      
       return Scaffold(
         backgroundColor: AppColors.primary,
         appBar: AppBar(
@@ -45,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                     trailing: isExpanded ? "+" : "-",
                     leading: userViewModel.user.name.isEmpty
                         ? "No Name Found!"
-                        : userViewModel.user.name.isEmpty,
+                        : userViewModel.user.name,
                     children: <Widget>[
                       Container(
                         padding: EdgeInsets.all(16),

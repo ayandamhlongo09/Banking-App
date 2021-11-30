@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
             .getClientDetails(userViewModel.loginResponse.localId,
                 userViewModel.loginResponse.idToken)
             .then((User user) {
-          if (loginResponse == null) {
+          if (user == null) {
             CustomAlertDialog.okDialog(
               context: context,
               title: 'Login failed',

@@ -49,16 +49,13 @@ class UserDataSourceImpl implements UserDataSource {
 
   Future<User> getClientDetails(localId, tokenId) async {
     String baseUrl =
-        "https://momentum-retail-practical-test.firebaseio.com/clients";
+        'https://momentum-retail-practical-test.firebaseio.com/clients';
 
-    var url =
-        Uri.http(baseUrl, localId + ".json", {"auth": tokenId.toString()});
-
-    final response = await http
-        .get(
-      url,
-    )
-        .timeout(timeout, onTimeout: () {
+    Map<String, String> queryParams = {'auth': tokenId.toString()};
+    String queryString = Uri(queryParameters: queryParams).query;
+    var requestUrl =
+        path.url.join(baseUrl, localId + '.json') + '?' + queryString;
+    var response = await http.get(requestUrl).timeout(timeout, onTimeout: () {
       throw NetworkTimeoutException();
     });
 

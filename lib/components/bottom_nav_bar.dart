@@ -25,11 +25,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Consumer<BottomNavViewModel>(
       builder:
           (BuildContext ctx, BottomNavViewModel navBarViewModel, Widget _) {
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          userViewModel.getClientDetails(userViewModel.loginResponse.localId,
-              userViewModel.loginResponse.idToken);
-        });
-
         final List<BottomNavItem> bottomNavItems =
             navBarViewModel.bottomNavItems;
         final List<BottomNavigationBarItem> _bottomNavigationBarItemList =
